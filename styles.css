@@ -24,7 +24,7 @@ body {
 
 h1 {
     font-size: 2.5em;
-    color: #4bb30e;
+    color: #ffff00; /* Amarillo */
     margin-bottom: 20px;
 }
 
@@ -38,8 +38,8 @@ h1 {
 
 button {
     background: transparent;
-    color: #4bb30e;
-    border: 2px solid #4bb30e;
+    color: #ffff00; /* Amarillo */
+    border: 2px solid #ffff00; /* Amarillo */
     padding: 10px 15px;
     border-radius: 25px;
     cursor: pointer;
@@ -48,7 +48,7 @@ button {
 }
 
 button:hover {
-    background: #00ff0db7;
+    background: #ffff0080; /* Amarillo con transparencia */
     color: #000000;
     transform: scale(1.05);
 }
@@ -101,22 +101,22 @@ input[type="password"] {
 }
 
 input:focus {
-    border-color: #00ff0db7;
+    border-color: #ffff0080; /* Amarillo con transparencia */
     outline: none;
 }
 
 button[type="submit"] {
     width: 90%;
     background: transparent;
-    color: #4bb30e;
-    border: 2px solid #4bb30e;
+    color: #ffff00; /* Amarillo */
+    border: 2px solid #ffff00; /* Amarillo */
     border-radius: 25px;
     padding: 10px;
     cursor: pointer;
 }
 
 button[type="submit"]:hover {
-    background: #00ff0db7;
+    background: #ffff0080; /* Amarillo con transparencia */
     color: #000000;
 }
 
@@ -134,7 +134,7 @@ button[type="submit"]:hover {
 .barra {
     height: 100%;
     width: 0%;
-    background-color: #00ff0db7;
+    background-color: #ffff00; /* Amarillo */
     transition: width 0.5s ease;
 }
 
@@ -178,4 +178,32 @@ button[type="submit"]:hover {
         font-size: 0.9em;
         padding: 8px 12px;
     }
+}
+
+
+/* Campos de teléfono y fecha */
+input[type="tel"],
+input[type="date"] {
+    width: 85%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: #333333;
+    color: #ffffff;
+    border: 2px solid #cccccc;
+    border-radius: 25px;
+    font-size: 1em;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+/* Estilo específico para el campo de fecha */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: #ffff00; /* Amarillo */
+    color: #000000;
+}
+
+/* Estilo específico para el campo de teléfono */
+input[type="tel"] {
+    /* Puedes agregar aquí estilos adicionales para el campo de teléfono,
+    por ejemplo, para mostrar un formato específico o un icono de teléfono */
 }

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const barra = document.getElementById("barra");
     const porcentaje = document.getElementById("porcentaje");
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyrHhYnyIA5Xh-hWmq0vPxLmCOM-YS4hF_ZG-PPviu02fQ6uNDqNit5EiHRNsaAESl5KQ/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzd-C_nsmMreTVkRVrIKDI87tOelcTpKoLdUXnb2ubIk2OMbmMut8QNYmHfGm9YQwE/exec';
 
     // **Establecer estado inicial**
     loginForm.classList.remove("hidden"); // Mostrar formulario de inicio
@@ -65,6 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const formData = new FormData(event.target);
 
+        // Agregar los campos del formulario con los nombres correspondientes
+        formData.append("idcliente", formData.get("idcliente"));
+        formData.append("nombre", formData.get("nombre"));
+        formData.append("apellido", formData.get("apellido"));
+        formData.append("telefono", formData.get("telefono"));
+        formData.append("email", formData.get("email"));
+        formData.append("fecha_inscripcion", formData.get("fecha_inscripcion"));
+        formData.append("password", formData.get("password"));
+
         fetch(scriptURL, { method: 'POST', body: formData })
             .then(response => {
                 if (response.ok) {
@@ -90,6 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const formData = new FormData(event.target);
 
+        // Agregar solo los campos necesarios para el login
+        formData.append("email", formData.get("email"));
+        formData.append("password", formData.get("password"));
+
         fetch(scriptURL, { method: 'POST', body: formData })
             .then(response => response.json())
             .then(data => {
@@ -100,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         window.location.href = "inicio/index.html";
                     });
                 } else {
-                    throw new Error("Credenciales incorrectas.");
+                    throw new Error(data.message || "Credenciales incorrectas.");
                 }
             })
             .catch(error => alert("Error: " + error.message));
