@@ -203,7 +203,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* Estilo específico para el campo de teléfono */
-input[type="tel"] {
-    /* Puedes agregar aquí estilos adicionales para el campo de teléfono,
-    por ejemplo, para mostrar un formato específico o un icono de teléfono */
-}
+/*input[type="tel"] {
+    
+}*/
