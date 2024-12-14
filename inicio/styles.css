@@ -4,50 +4,151 @@ body, html {
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #000; /* Fondo negro */
-    color: #FFD700; /* Amarillo */
+    color: #FFD700; /* Texto amarillo */
 }
 
+/* Variables CSS para colores */
+:root {
+    --fondo-negro: #000;
+    --amarillo: #FFD700;
+    --amarillo-hover: #FFC107;
+    --transparente-negro: rgba(0, 0, 0, 0.8);
+    --blanco: #fff;
+}
+
+/* Estilo del Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
-    border-bottom: 2px solid #FFD700;
+    padding: 15px 20px;
+    background-color: var(--transparente-negro); /* Fondo semi-transparente */
+    border-bottom: 2px solid var(--amarillo);
+    box-shadow: 0 2px 5px rgba(255, 215, 0, 0.3); /* Sombra amarilla */
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Tamaño más grande para resaltar */
     margin: 0;
 }
 
 .logout-button {
     font-size: 1rem;
-    padding: 8px 16px;
-    border: 2px solid #FFD700; /* Borde amarillo */
+    padding: 10px 20px;
+    border: 2px solid var(--amarillo); /* Borde amarillo */
     border-radius: 25px; /* Bordes redondeados */
     background: none; /* Sin color de fondo */
-    color: #FFD700;
+    color: var(--amarillo);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.logout-button:hover {
-    background-color: #FFD700; /* Fondo amarillo al pasar el mouse */
-    color: #000; /* Texto negro */
+.logout-button:hover, .logout-button:focus {
+    background-color: var(--amarillo-hover); /* Fondo amarillo brillante */
+    color: var(--fondo-negro); /* Texto negro */
+    box-shadow: 0 0 10px var(--amarillo-hover); /* Efecto brillante */
 }
 
+/* Estilo del Footer */
 footer {
     text-align: center;
     padding: 10px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
-    border-top: 2px solid #FFD700;
+    background-color: var(--transparente-negro); /* Fondo semi-transparente */
+    border-top: 2px solid var(--amarillo);
+    box-shadow: 0 -2px 5px rgba(255, 215, 0, 0.3); /* Sombra amarilla */
 }
 
 footer p {
     margin: 0;
     font-size: 0.9rem;
+}
+
+/* Estilo del Main */
+.main-content {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--amarillo);
+    text-shadow: 0 2px 4px rgba(255, 215, 0, 0.5); /* Efecto de sombra amarilla */
+}
+
+/* Secciones */
+.user-info, .user-activities, .user-actions {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: var(--transparente-negro); /* Fondo semi-transparente */
+    border: 1px solid var(--amarillo);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.1);
+}
+
+.user-info p, .user-activities li {
+    font-size: 1rem;
+    margin: 5px 0;
+    line-height: 1.6;
+}
+
+.user-activities ul {
+    padding: 0;
+    list-style: none;
+}
+
+/* Botones de acciones */
+.action-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 5px;
+    border: 2px solid var(--amarillo);
+    border-radius: 25px;
+    background: none;
+    color: var(--amarillo);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.action-button:hover, .action-button:focus {
+    background-color: var(--amarillo-hover);
+    color: var(--fondo-negro);
+    box-shadow: 0 0 10px var(--amarillo-hover);
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .logout-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .action-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
 }
