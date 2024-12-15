@@ -3,42 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Aplicación</title>
+    <title>Usuario - Cargando Usuario...</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="header">
-        <h1>¡Hola, <span id="usuario">Usuario</span>!</h1>
-        <button id="cerrarSesion" class="logout-button">Cerrar Sesión</button>
-    </header>
+    <div class="container">
+        <!-- Encabezado -->
+        <header class="header">
+            <h1 id="nombre-apellido">Bunker Gym.</h1>
+            <button id="cerrar-sesion" class="btn-cerrar">Cerrar sesión</button>
+            <!-- Subtítulo ubicado debajo del botón -->
+            <h2 class="subtitulo">Bienvenido a tu panel de usuario</h2>
+        </header>
 
-    <main class="main-content">
-        <section class="user-info">
-            <h2>Tus Datos</h2>
-            <p><strong>Nombre:</strong> <span id="nombreCliente">[Nombre]</span></p>
-            <p><strong>Tipo de Membresía:</strong> <span id="tipoMembresia">[Membresía]</span></p>
-            <p><strong>Progreso General:</strong> <span id="progreso">[Progreso]</span></p>
-        </section>
-
-        <section class="user-activities">
-            <h2>Actividades Recientes</h2>
-            <ul id="actividadesRecientes">
-                <li>No hay actividades recientes.</li>
-            </ul>
-        </section>
-
-        <section class="user-actions">
-            <h2>Acciones Disponibles</h2>
-            <button id="actualizarDatos" class="action-button">Actualizar Datos</button>
-            <button id="verRutinas" class="action-button">Ver Rutinas</button>
-            <button id="registrarAsistencia" class="action-button">Registrar Asistencia</button>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>&copy; 2024 Mi Aplicación. Todos los derechos reservados.</p>
-    </footer>
-
+        <!-- Datos del cliente -->
+        <div id="datos-cliente" class="datos">
+            <h2>Tus datos</h2>
+            <p><strong>ID Cliente:</strong> <span id="id-cliente"></span></p>
+            <p><strong>Teléfono:</strong> <span id="telefono"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Fecha de Inscripción:</strong> <span id="fecha-inscripcion"></span></p>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
