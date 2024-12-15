@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         alert(`Bienvenido, ${data.nombre}`);
                         localStorage.setItem("usuario", data.nombre); // Guardar nombre en localStorage
                         localStorage.setItem("idcliente", data.idcliente); // Guardar idcliente en localStorage
-                        window.location.href = "inicio/index3.html";
+                        window.location.href = "inicio/index.html";
                     });
                 } else {
                     throw new Error(data.message || "Credenciales incorrectas.");
