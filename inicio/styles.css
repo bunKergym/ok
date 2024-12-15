@@ -1,154 +1,129 @@
-/* General Reset */
-body, html {
+/* General */
+body {
     margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #000; /* Fondo negro */
-    color: #FFD700; /* Texto amarillo */
+    background-color: #000;
+    color: #FFD700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-/* Variables CSS para colores */
-:root {
-    --fondo-negro: #000;
-    --amarillo: #FFD700;
-    --amarillo-hover: #FFC107;
-    --transparente-negro: rgba(0, 0, 0, 0.8);
-    --blanco: #fff;
+/* Contenedor principal */
+.container {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background: #111;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
-/* Estilo del Header */
-header {
+/* Encabezado */
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background-color: var(--transparente-negro); /* Fondo semi-transparente */
-    border-bottom: 2px solid var(--amarillo);
-    box-shadow: 0 2px 5px rgba(255, 215, 0, 0.3); /* Sombra amarilla */
+    margin-bottom: 100px;
+    flex-wrap: wrap; /* Permite que los elementos se reorganicen si el espacio es pequeño */
 }
 
-h1 {
-    font-size: 1.8rem; /* Tamaño más grande para resaltar */
+.header h1 {
+    font-size: 24px;
+    color: #FFD700;
     margin: 0;
+    text-align: left;
+    flex-grow: 1;
 }
 
-.logout-button {
-    font-size: 1rem;
-    padding: 10px 20px;
-    border: 2px solid var(--amarillo); /* Borde amarillo */
-    border-radius: 25px; /* Bordes redondeados */
-    background: none; /* Sin color de fondo */
-    color: var(--amarillo);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.logout-button:hover, .logout-button:focus {
-    background-color: var(--amarillo-hover); /* Fondo amarillo brillante */
-    color: var(--fondo-negro); /* Texto negro */
-    box-shadow: 0 0 10px var(--amarillo-hover); /* Efecto brillante */
-}
-
-/* Estilo del Footer */
-footer {
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--transparente-negro); /* Fondo semi-transparente */
-    border-top: 2px solid var(--amarillo);
-    box-shadow: 0 -2px 5px rgba(255, 215, 0, 0.3); /* Sombra amarilla */
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-/* Estilo del Main */
-.main-content {
-    padding: 20px;
-    margin: 0 auto;
-    max-width: 900px;
-}
-
-h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: var(--amarillo);
-    text-shadow: 0 2px 4px rgba(255, 215, 0, 0.5); /* Efecto de sombra amarilla */
-}
-
-/* Secciones */
-.user-info, .user-activities, .user-actions {
-    margin-bottom: 30px;
-    padding: 15px;
-    background-color: var(--transparente-negro); /* Fondo semi-transparente */
-    border: 1px solid var(--amarillo);
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.1);
-}
-
-.user-info p, .user-activities li {
-    font-size: 1rem;
-    margin: 5px 0;
-    line-height: 1.6;
-}
-
-.user-activities ul {
-    padding: 0;
-    list-style: none;
-}
-
-/* Botones de acciones */
-.action-button {
-    font-size: 1rem;
-    padding: 10px 20px;
-    margin: 5px;
-    border: 2px solid var(--amarillo);
+.btn-cerrar {
+    font-size: 14px;
+    padding: 8px 20px;
+    border: 2px solid #FFD700;
     border-radius: 25px;
     background: none;
-    color: var(--amarillo);
+    color: #FFD700;
     cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-block;
-    text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-.action-button:hover, .action-button:focus {
-    background-color: var(--amarillo-hover);
-    color: var(--fondo-negro);
-    box-shadow: 0 0 10px var(--amarillo-hover);
+.btn-cerrar:hover {
+    background-color: #FFD700;
+    color: #000;
+}
+
+/* Datos del cliente */
+.datos {
+    text-align: left;
+}
+
+.datos h2 {
+    font-size: 20px;
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 15px;
+    margin-bottom: 55px;
+}
+
+.datos p {
+    font-size: 16px;
+    margin: 30px 0;
+    word-wrap: break-word; /* Asegura que textos largos no se desborden */
 }
 
 /* Responsividad */
-@media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        text-align: center;
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Reorganiza elementos verticalmente */
+        align-items: center;
+        gap: 10px; /* Espacio entre elementos */
     }
 
-    h1 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
+    .header h1 {
+        font-size: 20px; /* Ajusta tamaño del texto para pantallas más pequeñas */
     }
 
-    .logout-button {
-        font-size: 0.9rem;
-        padding: 8px 16px;
+    .btn-cerrar {
+        font-size: 12px;
+        padding: 6px 15px;
     }
 
-    .main-content {
+    .datos h2 {
+        font-size: 18px; /* Reduce el tamaño del subtítulo */
+    }
+
+    .datos p {
+        font-size: 14px; /* Reduce el tamaño del texto */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
         padding: 15px;
     }
 
-    h2 {
-        font-size: 1.2rem;
+    .header h1 {
+        font-size: 18px;
     }
 
-    .action-button {
-        font-size: 0.9rem;
-        padding: 8px 16px;
+    .btn-cerrar {
+        font-size: 12px;
+        padding: 5px 10px;
     }
+
+    .datos h2 {
+        font-size: 16px;
+    }
+
+    .datos p {
+        font-size: 13px;
+    }
+}
+.subtitulo {
+    font-size: 16px;
+    color: #FFD700;
+    margin-top: 10px; /* Espaciado desde el botón */
+    text-align: center; /* Alineado al centro */
+    font-weight: 400;
 }
