@@ -120,10 +120,3 @@ body {
         font-size: 13px;
     }
 }
-.subtitulo {
-    font-size: 16px;
-    color: #FFD700;
-    margin-top: 10px; /* Espaciado desde el botón */
-    text-align: center; /* Alineado al centro */
-    font-weight: 400;
-}
