@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const telefonoElem = document.getElementById("telefono");
     const emailElem = document.getElementById("email");
     const fechaInscripcionElem = document.getElementById("fecha-inscripcion");
+    const qrImageElem = document.getElementById("qr-image"); // Nueva referencia
     const botonCerrarSesion = document.getElementById("cerrar-sesion");
 
     // Redirigir si no hay un cliente guardado
@@ -30,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 telefonoElem.innerText = cliente.Telefono;
                 emailElem.innerText = cliente.Email;
                 fechaInscripcionElem.innerText = new Date(cliente["Fecha de inscripcion"]).toLocaleDateString();
+
+                // Mostrar el código QR
+                qrImageElem.src = cliente.qr; // Asignar el enlace del QR al atributo src
+                qrImageElem.alt = `QR para ${cliente.Nombre} ${cliente.Apellido}`;
             } else {
                 alert("No se encontraron datos para este cliente.");
                 window.location.href = "../index.html";
