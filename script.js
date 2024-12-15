@@ -79,7 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (response.ok) {
                     simularProgreso(() => {
                         alert("Registro exitoso. Ahora puedes iniciar sesión.");
-                        localStorage.setItem("usuario", formData.get("email"));
+                        localStorage.setItem("usuario", formData.get("email")); // Guardar email en localStorage
+                        localStorage.setItem("idcliente", formData.get("idcliente")); // Guardar idcliente en localStorage
                         showLogin.click();
                         
                         // Eliminar el efecto de opacación y habilitar la interacción
@@ -109,8 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (data.success) {
                     simularProgreso(() => {
                         alert(`Bienvenido, ${data.nombre}`);
-                        localStorage.setItem("usuario", data.nombre);
-                        window.location.href = "inicio/index.html";
+                        localStorage.setItem("usuario", data.nombre); // Guardar nombre en localStorage
+                        localStorage.setItem("idcliente", data.idcliente); // Guardar idcliente en localStorage
+                        window.location.href = "inicio/index3.html";
                     });
                 } else {
                     throw new Error(data.message || "Credenciales incorrectas.");
