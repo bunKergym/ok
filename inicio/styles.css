@@ -26,23 +26,19 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px; /* Ajustado para móviles */
-    flex-wrap: wrap; /* Permite reorganización en pantallas pequeñas */
-    gap: 10px; /* Espacio entre elementos */
+    margin-bottom: 10px;
 }
 
 .header h1 {
     font-size: 24px;
     color: #FFD700;
-    margin: 10;
-    text-align: left;
-    flex-grow: 1;
+    margin: 0;
 }
 
 .btn-cerrar {
     font-size: 14px;
     padding: 8px 20px;
-    border: 2px solid #FFD700;
+    border: 2px solid red;
     border-radius: 25px;
     background: none;
     color: #FFD700;
@@ -51,59 +47,65 @@ body {
 }
 
 .btn-cerrar:hover {
+    background-color: red;
+    color: #fff;
+}
+
+/* Divider */
+.divider {
+    border: none;
+    height: 2px;
     background-color: #FFD700;
-    color: #000;
+    margin: 20px 0;
 }
 
 /* Datos del cliente */
 .datos {
     text-align: left;
-    display: flex;
-    flex-direction: column; /* Alinea los elementos en columna por defecto */
-    align-items: center; /* Centra los elementos horizontalmente */
-    gap: 3px; /* Espaciado entre elementos */
+    margin-bottom: 20px;
 }
 
 .datos h2 {
     font-size: 20px;
     border-bottom: 2px solid #FFD700;
-    padding-bottom: 15px;
-    margin-bottom: 10px; /* Ajustado para pantallas pequeñas */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .datos p {
     font-size: 16px;
-    margin: 10px 0;
-    word-wrap: break-word; /* Evita desbordamientos de texto */
+    margin: 8px 0;
+    word-wrap: break-word;
 }
 
 /* Código QR */
 .qr-code {
-    padding: 15px;
-    background-color: #222; /* Fondo del contenedor para destacar el QR */
-    border: 2px solid #FFD700; /* Borde dorado */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
-    display: inline-block; /* Se adapta al contenido */
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    background-color: #222;
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .qr-code img {
-    width: 100%; /* Asegura que la imagen sea responsiva */
-    max-width: 200px; /* Tamaño máximo para el QR */
-    height: auto; /* Mantiene la proporción de la imagen */
-    border-radius: 5px; /* Opcional: redondea los bordes del QR */
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Asegura que el QR sea siempre cuadrado */
+    border-radius: 5px;
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
     .header {
-        flex-direction: column; /* Reorganiza elementos verticalmente */
-        align-items: center;
-        gap: 10px; /* Espacio entre elementos */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 
     .header h1 {
-        font-size: 20px; /* Ajusta tamaño del texto para pantallas más pequeñas */
+        font-size: 20px;
     }
 
     .btn-cerrar {
@@ -112,15 +114,15 @@ body {
     }
 
     .datos h2 {
-        font-size: 18px; /* Reduce el tamaño del subtítulo */
+        font-size: 18px;
     }
 
     .datos p {
-        font-size: 14px; /* Reduce el tamaño del texto */
+        font-size: 14px;
     }
 
     .qr-code {
-        margin-top: 20px; /* Espaciado adicional para móviles */
+        margin-top: 15px;
     }
 }
 
@@ -147,19 +149,6 @@ body {
     }
 
     .qr-code {
-        margin-top: 15px;
-    }
-}
-
-/* Ajustes adicionales para pantallas grandes */
-@media (min-width: 768px) {
-    .datos {
-        flex-direction: row; /* Coloca los elementos en una fila para pantallas grandes */
-        justify-content: space-between; /* Distribuye espacio entre los elementos */
-        align-items: center; /* Centra verticalmente el contenido */
-    }
-
-    .qr-code {
-        margin-left: 20px; /* Agrega separación entre el QR y los textos */
+        margin-top: 10px;
     }
 }
