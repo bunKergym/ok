@@ -80,13 +80,16 @@ body {
 
 /* Código QR */
 .qr-code {
-    width: 100%;
-    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
     padding: 10px;
     background-color: #222;
     border: 2px solid #FFD700;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
 }
 
 .qr-code img {
