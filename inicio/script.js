@@ -3,48 +3,58 @@ document.addEventListener("DOMContentLoaded", () => {
     const idClienteGuardado = localStorage.getItem("idcliente");
 
     // Referencias a elementos HTML
-    const nombreApellidoHeader = document.getElementById("nombre-apellido");
-    const idClienteElem = document.getElementById("id-cliente");
-    const telefonoElem = document.getElementById("telefono");
-    const emailElem = document.getElementById("email");
-    const fechaInscripcionElem = document.getElementById("fecha-inscripcion");
-    const qrImageElem = document.getElementById("qr-image"); // Nueva referencia
-    const botonCerrarSesion = document.getElementById("cerrar-sesion");
+const nombreApellidoHeader = document.getElementById("nombre-apellido");
+const idClienteElem = document.getElementById("id-cliente");
+const telefonoElem = document.getElementById("telefono");
+const emailElem = document.getElementById("email");
+const fechaInscripcionElem = document.getElementById("fecha-inscripcion");
+const tipoMembresiaElem = document.getElementById("tipo-membresia"); // Nueva referencia
+const fechaCuotaElem = document.getElementById("fecha-cuota"); // Nueva referencia
+const vencimientoElem = document.getElementById("vencimiento"); // Nueva referencia
+const qrImageElem = document.getElementById("qr-image");
+const botonCerrarSesion = document.getElementById("cerrar-sesion");
 
-    // Redirigir si no hay un cliente guardado
-    if (!idClienteGuardado) {
-        alert("Debes iniciar sesión primero.");
-        window.location.href = "../index.html";
-        return;
-    }
+   // Redirigir si no hay un cliente guardado
+if (!idClienteGuardado) {
+    alert("Debes iniciar sesión primero.");
+    window.location.href = "../index.html";
+    return;
+}
 
-    // Obtener datos desde Google Apps Script
-    fetch(scriptURL)
-        .then(response => response.json())
-        .then(data => {
-            const cliente = data.find(item => item.idcliente === idClienteGuardado);
+   // Obtener datos desde Google Apps Script
+fetch(scriptURL)
+.then(response => response.json())
+.then(data => {
+    const cliente = data.find(item => item.idcliente === idClienteGuardado);
 
-            if (cliente) {
-                // Mostrar los datos en la página
-                nombreApellidoHeader.innerText = `${cliente.Nombre} ${cliente.Apellido}`;
-                idClienteElem.innerText = cliente.idcliente;
-                telefonoElem.innerText = cliente.Telefono;
-                emailElem.innerText = cliente.Email;
-                fechaInscripcionElem.innerText = new Date(cliente["Fecha de inscripcion"]).toLocaleDateString();
+    if (cliente) {
 
-                // Mostrar el código QR
-                qrImageElem.src = cliente.qr; // Asignar el enlace del QR al atributo src
-                qrImageElem.alt = `QR para ${cliente.Nombre} ${cliente.Apellido}`;
-            } else {
-                alert("No se encontraron datos para este cliente.");
-                window.location.href = "../index.html";
-            }
-        })
-        .catch(error => {
-            console.error("Error al obtener los datos:", error);
-            alert("Ocurrió un error al cargar los datos.");
-        });
 
+        // Mostrar los datos en la página
+        nombreApellidoHeader.innerText = `${cliente.Nombre} ${cliente.Apellido}`;
+        idClienteElem.innerText = cliente.idcliente;
+        telefonoElem.innerText = cliente.Telefono;
+        emailElem.innerText = cliente.Email;
+        fechaInscripcionElem.innerText = new Date(cliente["Fecha de inscripcion"]).toLocaleDateString();
+        tipoMembresiaElem.innerText = cliente["Tipo de membresia"];
+        fechaCuotaElem.innerText = cliente["Fecha de cuota"];
+        vencimientoElem.innerText = new Date(cliente.Vencimiento).toLocaleDateString();
+
+
+
+               // Mostrar el código QR
+            qrImageElem.src = cliente.qr;
+        } else {
+            alert("Cliente no encontrado.");
+            window.location.href = "../index.html";
+        }
+    })
+    .catch(error => {
+        console.error("Error al obtener los datos del cliente:", error);
+        alert("Hubo un error al obtener los datos del cliente.");
+    });
+
+    
     // Cerrar sesión
     botonCerrarSesion.addEventListener("click", () => {
         localStorage.removeItem("idcliente");
