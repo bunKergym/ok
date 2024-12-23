@@ -1,4 +1,8 @@
-// Referencias a elementos HTML
+document.addEventListener("DOMContentLoaded", () => {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyG6muqOuuaL0ZMxINAio_EwmalCFJ2PUXtI14Fs97EFrk2Rr_v2bFTBLXo7TjlPIUz/exec';
+    const idClienteGuardado = localStorage.getItem("idcliente");
+
+ // Referencias a elementos HTML
 const nombreApellidoHeader = document.getElementById("nombre-apellido");
 const idClienteElem = document.getElementById("id-cliente");
 const telefonoElem = document.getElementById("telefono");
@@ -46,3 +50,11 @@ fetch(scriptURL)
         console.error("Error al obtener los datos del cliente:", error);
         alert("Hubo un error al obtener los datos del cliente.");
     });
+
+
+    // Cerrar sesión
+    botonCerrarSesion.addEventListener("click", () => {
+        localStorage.removeItem("idcliente");
+        window.location.href = "../index.html";
+    });
+});
