@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario - Cargando usuario...</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado -->
+        <header class="header">
+            <h1 id="nombre-apellido">Bunker Gym</h1>
+            <button id="cerrar-sesion" class="btn-cerrar">S a l i r</button>
+        </header>
+
+        <hr class="divider">
+
+        <!-- Datos del cliente -->
+        <div id="datos-cliente" class="datos">
+            <h2></h2>
+            <div id="id-cliente-container">
+                <p><strong>ID Cliente:</strong> <span id="id-cliente"></span></p>
+            </div>
+            <p><strong>Teléfono:</strong> <span id="telefono"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Fecha de Inscripción:</strong> <span id="fecha-inscripcion"></span></p>
+            <p><strong>Tipo de Membresía:</strong> <span id="tipo-membresia"></span></p>
+            <p><strong>Fecha de Cuota:</strong> <span id="fecha-cuota"></span></p>
+            <p><strong>Vencimiento:</strong> <span id="vencimiento"></span></p>
+        </div>
+
+        <!-- Código QR -->
+        <div id="qr-container" class="qr-code">
+            <img id="qr-image" alt="Código QR del cliente" />
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
