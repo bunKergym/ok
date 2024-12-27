@@ -52,9 +52,9 @@ fetch(scriptURL)
     });
 
 
-    // Cerrar sesión
+   // Cerrar sesión
     botonCerrarSesion.addEventListener("click", () => {
         localStorage.removeItem("idcliente");
-        window.location.href = "/index.html"; // Actualizar la ruta
+        window.location.href = "../index.html"; // Actualizar la ruta
     });
 });
